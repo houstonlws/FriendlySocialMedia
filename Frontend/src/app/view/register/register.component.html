@@ -1,0 +1,26 @@
+<div [attr.theme]='theme' style="height: 100%">
+    <app-navbar (darkMode)="toggleTheme($event)"></app-navbar>
+    <div class="primary-background"></div>
+  
+<main>
+  <article>
+        <div #registrationForm class="registration-form">
+            <h2>Create an Account</h2>
+            <form (keyup)="canSubmit()" formGroup="register">
+                <p [hidden]="passwordsMatch ? false : true">Passwords don't match!</p>
+                <p [style.color]="responseColor">{{response}}</p>
+                <input #username class="form-control" type="text" placeholder="Username" [(ngModel)]='userInsert.username' name="username">
+                <input #password (keyup)="passwordMatches()" class="form-control" type="password" placeholder="Password" [(ngModel)]='userInsert.password' name="password">
+                <input #password2 [class.invalid]="passwordsMatch" (keyup)="passwordMatches()" class="form-control" type="password" placeholder="Retype Password" name="password2">
+                <input #firstname class="form-control" type="text" placeholder="First Name" [(ngModel)]='userInsert.firstname' name="firstname">
+                <input #lastname class="form-control" type="text" placeholder="Last Name" [(ngModel)]='userInsert.lastname' name="lastname">
+                <input #email class="form-control" type="text" placeholder="Email" [(ngModel)]='userInsert.email' name="email">
+                <button [disabled]="ready ? false : true" (click)="register()" class="btn btn-primary w-100" type="button">Sign Up</button>
+            </form>
+        </div>
+    </article>
+</main>
+
+<app-loadingspinner *ngIf="loading"></app-loadingspinner>
+
+</div>

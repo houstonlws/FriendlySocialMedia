@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+    <!--    THE WEB.XML FILE IS USE BY TOMCAT TO DEPLOY YOUR APPLICATION
+            ANOTHER NAME FOR THE WEB.XML IS "DEPLOYMENT DESCRIPTOR"-->
+
+
+    <display-name>HelloSpringMVC</display-name>
+
+<!--    WELCOME FILE DEFINES YOUR LANDING PAGE-->
+    <welcome-file-list>
+<!--        CAN HAVE A LIST OF PAGES, BUT THE FIRST ONE THAT IS FOUND WILL BE THE LANDING PAGE -->
+        <welcome-file>index.html</welcome-file>
+<!--        <welcome-file>backup.html</welcome-file>-->
+<!--        <welcome-file>other.html</welcome-file>-->
+    </welcome-file-list>
+
+    <!-- This context load listener will tie the lifecycle of spring to the lifecycle
+    of tomcat itself. In short, it's an event listener -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+<!--    DECLARING SERVLETS-->
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+<!--        THIS IS SPRING'S ALREADY CREATED SERVLET... IT'LL REPRESENT OUR FRONT CONTROLLER -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+</web-app>

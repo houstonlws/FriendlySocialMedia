@@ -1,0 +1,44 @@
+html, body {
+    min-height: 100% !important;
+    height: 100%
+}
+
+:host(app-register){
+    height: 100%;
+}
+
+main{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+h2{
+    text-align: center;
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registration-form{
+    padding: 15px;
+    width: 400px;
+}
+
+.registration-form p{
+    text-align: center;
+    color: red;
+}
+
+.invalid{
+    border-style: solid!important;
+    border-color: red!important;
+    background-color: #ff000030!important;
+}
+
+form input{
+    margin-bottom: 10px;
+}

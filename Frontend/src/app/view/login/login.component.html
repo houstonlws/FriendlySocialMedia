@@ -1,0 +1,32 @@
+<div [attr.theme]='theme' style="height: 100%">
+  <div class="primary-background"></div>
+  <app-navbar (darkMode)="toggleTheme($event)"></app-navbar>
+
+<main>
+    <article>
+      <form class="form-container" id="logInBox">
+          <div id='invalid-creds'>
+            {{response}}
+          </div>
+          <div class="form-group">
+            <h2 id="userLoginText">User Login</h2>
+            <label class = "inputText" >Username</label> <input type="username" class="form-control" id="userName" placeholder="Username" [(ngModel)]='userCred.username' name='username'>
+          </div>
+          <br>
+          <div class="form-group">
+            <label class = "inputText">Password</label> <input (keydown.enter)='loginUser()' type="password" class="form-control" id="Password1" placeholder="Password" name='password' [(ngModel)]='userCred.password'>
+          </div>
+          <br>
+          <div class="form-group">
+            <a class="a-tag" (click)="toggleForgotPasswordForm()">Forgot your password?</a>
+          </div>
+          <br>
+          <button type="button" id="loginButton" class="btn btn-success btn-block" (click)='loginUser()'>Submit</button>
+          </form>
+    </article>
+</main>
+
+<app-fpform  *ngIf="forgotFormVisibility"  (vis)="close($event)"></app-fpform>
+<app-loadingspinner *ngIf="loading"></app-loadingspinner>
+
+</div>

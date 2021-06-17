@@ -1,0 +1,17 @@
+
+main {
+    padding-top: 71px;
+    height: 100%;
+    min-height: 100%;
+}
+
+
+
+.navbar{
+    display: flex;
+    flex-shrink: 0;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    font-weight: 700;
+}
+

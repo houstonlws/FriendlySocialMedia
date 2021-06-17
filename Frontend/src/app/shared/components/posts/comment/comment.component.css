@@ -1,0 +1,52 @@
+.reply {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--primary-text);
+}
+
+.reply:hover{
+    background-color: var(--primary-background);
+}
+
+.comment-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-background);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.profile-pic{
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    background-color: black;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.profile-pic img{
+    width: 100%;
+    z-index: 1;
+}
+
+.comment-title{
+    text-decoration: none;
+    color: var(--primary-text);
+    font-weight: 600;
+}
+
+.comment-frame{
+    margin-top: 15px;
+}
+
+.comment-image{
+    max-width: 500px;
+}

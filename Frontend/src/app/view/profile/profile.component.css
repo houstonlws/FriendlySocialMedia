@@ -1,0 +1,71 @@
+.p-pic{
+    max-width: 150px;
+    border-radius: 4px;
+}
+
+.post{
+    padding: 20px;
+    box-shadow: 2px 2px 4px #ddd;
+    border-radius: 8px;
+    background-color: rgb(250, 249, 249);
+    margin: 10px;
+}
+
+.sec1{
+    display: flex;
+}
+
+.user-info{
+    margin-left: 15px;
+}
+
+.profile-image{
+    display: flex;
+    float: left;
+}
+
+.overlay{
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.update-form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+label{
+    color: white;
+}
+
+.edit{
+    display: flex;
+    flex-grow: 1;
+    color: var(--primary-text);
+    text-decoration: none;
+    justify-content: flex-end;
+}
+
+.edit a{
+    padding: 15px;
+}
+
+.user-info p {
+    margin-bottom: 0px;
+}

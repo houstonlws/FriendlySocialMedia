@@ -1,0 +1,27 @@
+<div class="" style="width: auto;">
+  <div class="">
+    <div class="comment-frame">
+      <div class="profile-pic">
+        <a routerLink='/profile/{{comment.user.id}}'>
+          <img class="profile-pic" [src]="comment.user.profilePhoto" alt="">
+        </a>
+      </div>
+    <div class="comment-box">
+      <div class="comment">
+        <h5><a routerLink='/profile/{{comment.user.id}}' class="comment-title">{{comment.user.firstname}} {{comment.user.lastname}}</a></h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{comment.dateCreated}}</h6>
+        <p class="card-text">{{comment.message}}</p>
+        <img *ngIf = "comment.image" [src]="comment.image" class="comment-image" alt="">
+        <div>
+          <app-reply *ngIf="authenticated" (click)="toggleMessageBox()" [post]="comment"></app-reply>
+          <app-likes *ngIf="authenticated" [post]="comment"></app-likes>
+        </div>
+        <app-postform [id]="comment.id" *ngIf='creatingNewPost' [currentPost]='comment' (updatedPosts)="getUpdatedPosts($event)"></app-postform>
+      </div>
+      <div *ngFor='let c of comment.comments'>
+        <app-comment [comment]='c'  (updatedPosts)="getUpdatedPosts($event)"></app-comment>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

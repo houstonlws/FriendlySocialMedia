@@ -1,0 +1,13 @@
+<div [attr.theme]='theme' style="height: 100%">
+    <div class="primary-background"></div>
+    <app-navbar (darkMode)="toggleTheme($event)"></app-navbar>
+  
+<div class = "users">
+    <div *ngFor = "let user of users" >
+        <app-user [user]="user"></app-user>
+    </div>
+</div>
+
+<app-loadingspinner *ngIf="loading"></app-loadingspinner>
+
+</div>

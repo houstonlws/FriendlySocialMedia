@@ -1,0 +1,51 @@
+<div>
+    <div class="post-header">
+        <div *ngIf="canEdit" class="edit-post">
+            <div class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon></svg>                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a (click)="toggleEditing()"class="dropdown-item" style="cursor: pointer">Edit</a>
+                  <a class="dropdown-item" style="color: red; cursor: pointer" (click)="toggleAskToDelete()">Delete</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" *ngIf="askToDelete">
+            <div class="update-form">
+                <h2 style="color: white">Are you sure?</h2>
+                <button class="btn btn-danger" (click)="deletePost()">Yes</button>
+                <button class="btn btn-dark" (click)="toggleAskToDelete()">No</button>
+            </div>
+
+        </div>
+
+        <div class="profile-pic">
+            <a routerLink='/profile/{{post.user.id}}'>
+                <img class="profile-pic" [src]="post.user.profilePhoto" alt="">
+            </a>
+        </div>
+        <h5><a class="post-title" routerLink='/profile/{{post.user.id}}'>{{post.user.firstname}} {{post.user.lastname}}</a></h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{post.dateCreated}}</h6>
+    </div>
+    <p [hidden]="!editingPost" class="" >{{post.message}}</p>
+    <textarea (keydown.escape)="toggleEditing()" (keydown.enter)="updatePost()" id="editPost{{post.id}}" [hidden]="editingPost" class="edit-post-box" [(ngModel)]="post.message" name="postmessage">{{post.message}}</textarea>
+    <button (click)="updatePost()" [hidden]="editingPost" type="button">Submit</button>
+    <div class="image-container">
+        <img *ngIf = "post.image" [src]="post.image" class="post-image" alt="">
+    </div>
+
+    <app-reply *ngIf="sesUser" [post]="post"></app-reply>
+    <app-likes *ngIf="sesUser" [post]="post"></app-likes>
+
+    <div class="comment-section">
+        <div *ngFor='let comment of post.comments'>
+            <app-comment [comment]='comment' (updatedPosts)="getUpdatedPosts($event)"></app-comment>
+        </div>
+    </div>
+
+     <app-postform *ngIf="sesUser" [id]='post.id' [currentPost]='post' (updatedPosts)="getUpdatedPosts($event)"></app-postform>
+
+</div>
+
+<app-loadingspinner *ngIf="loading"></app-loadingspinner>

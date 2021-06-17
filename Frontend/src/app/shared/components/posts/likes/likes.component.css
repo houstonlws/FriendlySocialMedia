@@ -1,0 +1,11 @@
+.reply {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--primary-text);
+}
+
+.reply:hover{
+    background-color: var(--primary-background);
+    cursor: pointer;
+}

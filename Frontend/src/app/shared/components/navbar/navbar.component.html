@@ -1,0 +1,45 @@
+<nav role="navigation" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" [routerLink]="home">Friendly</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span >
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>          </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="mobileNav">
+            <form *ngIf="loggedin" class="search" (ngSubmit)="goToSearchPage()">
+              <input type="search" placeholder="Search" [(ngModel)]="searchVal" name="search">
+            </form>
+            <ul class="navbar-nav mt-2 mt-lg-0">
+              <li *ngIf="loggedin" class="nav-item">
+                <a class="nav-link active" aria-current="page" [routerLink]="profile">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.52 19c.64-2.2 1.84-3 3.22-3h6.52c1.38 0 2.58.8 3.22 3"/><circle cx="12" cy="10" r="3"/><circle cx="12" cy="12" r="10"/></svg>
+                  Profile
+                </a>
+              </li>
+              <li *ngIf="loggedin" class="nav-item">
+                  <a class="nav-link active" aria-current="page" routerLink="/chatroom">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>                
+                  Chat
+                  </a>
+              </li>
+            <li *ngIf="loggedin" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  Settings
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a (click)="toggleTheme()" class="dropdown-item" style="cursor: pointer;">Dark Mode</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+                </div>
+              </li>
+              <li *ngIf="!loggedin" class="nav-item">
+                  <a class="nav-link active" aria-current="page" routerLink="/login">Login</a>
+              </li>
+              <li *ngIf="!loggedin" class="nav-item ">
+                  <a class="nav-link" routerLink="/register">Register</a>
+              </li>
+            </ul>
+          </div>
+    </div>
+</nav>

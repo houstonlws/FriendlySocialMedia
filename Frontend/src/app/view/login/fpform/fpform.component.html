@@ -1,0 +1,15 @@
+<div class="overlay">
+    <form class="forgot-password-form">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="username" [value]="username" [(ngModel)] = "username" name="username">
+            <p>Email will be sent to email address related to username entered</p>
+          </div>
+          <div class = "btns">
+            <button type="button" class="btn btn-primary" (click)="sendForgotEmail()">Send Email</button>
+            <button type="button" class="btn btn-danger" (click)="close()" >Cancel</button>
+          </div>
+       
+    </form>
+</div>
+
+<app-loadingspinner *ngIf="loading"></app-loadingspinner>

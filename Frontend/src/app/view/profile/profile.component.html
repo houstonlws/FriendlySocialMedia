@@ -1,0 +1,71 @@
+<div [attr.theme]='theme' style="height: 100%">
+  <div class="primary-background"></div>
+  <app-navbar (darkMode)="toggleTheme($event)"></app-navbar>
+
+<div class="overlay" *ngIf="formVisibility">
+    <form class="update-form">
+        <div class="mb-3">
+          <label class = "inputText" >Update Profile Picture</label>
+            <input type="file" class="form-control" (change)="selectFile($event)">
+          </div>
+        <div class="mb-3">
+          <label class = "inputText" >First Name</label>
+            <input type="text" class="form-control" [value]="profile.firstname" [(ngModel)] = "profile.firstname" name="firstname">
+          </div>
+          <div class="mb-3">
+            <label class = "inputText" >Last Name</label>
+            <input type="text" class="form-control" [value]="profile.lastname" [(ngModel)] = "profile.lastname" name="lastname">
+          </div>
+          <div class = "btns">
+            <button type="button" class="btn btn-primary" (click)="updateUser()">Update User</button>
+            <button type="button" class="btn btn-danger" (click)="toggleForm()">Cancel</button>
+          </div>
+       
+    </form>
+</div>
+
+<app-loadingspinner *ngIf="loading"></app-loadingspinner>
+<div class="component-border">
+  <div class="card-body">
+    <div class="sec1">
+      <div class="profile-image">
+        <img class ="p-pic" [src]="profile.profilePhoto" alt="profile image">
+      </div>
+      <div class="user-info">
+        <h3>{{profile.username}}</h3>
+        <div *ngIf="profile.firstname && profile.lastname">
+          <p>
+            <b>Name:</b> {{profile.firstname}} {{profile.lastname}}
+          </p>
+        </div>
+        <div *ngIf="profile.email">
+          <p>
+            <b>Email:</b> {{profile.email}}
+          </p>
+        </div>
+      </div>  
+      <div class="edit"> 
+        <a *ngIf="editAllowed" role="button" (click) = "toggleForm()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon></svg>                
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="editAllowed" class="component-border">
+  <h4>Create a Post</h4>
+  <app-postform  (updatedPosts)="getUpdatedPosts($event)"></app-postform>
+</div>
+
+
+<h3>{{userPosts.length}} Posts</h3>
+<div *ngIf="userPosts">
+  <div class="component-border" *ngFor='let post of userPosts' name='posts'>
+    <div class="card-body">
+    <app-post [post]='post' (updatedPosts)="getUpdatedPosts($event)"></app-post>
+    </div>
+  </div>
+</div>
+ 
+</div>

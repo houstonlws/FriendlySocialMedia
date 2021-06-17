@@ -1,0 +1,89 @@
+.reply {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--primary-text);
+}
+
+.reply:hover{
+    background-color: var(--primary-background);
+}
+
+.comment-section{
+    padding: 0px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.profile-pic{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    float: left;
+    margin-right: 10px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.profile-pic img{
+    width: 100%;
+    z-index: 1;
+}
+
+.post-image{
+    width: 100%
+}
+
+.post-title{
+    text-decoration: none;
+    color: var(--primary-text);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.image-container{
+    max-width: 500px;
+    display: flex;
+}
+
+.edit-post{
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    float: right;
+}
+
+.edit-post a{
+    color: var(--primary-text);
+    text-decoration: none;
+}
+
+.edit-post-box{
+    width: 100%;
+}
+
+.overlay{
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.update-form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.user-info p{
+    color: var(--primary-color);
+}

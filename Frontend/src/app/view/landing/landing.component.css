@@ -1,0 +1,77 @@
+:host(app-landing){
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#myVideo {
+    object-fit: cover;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+.video-filter{
+    background-color: var(--primary-color);
+    opacity: 50%;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 100%;
+}
+
+article h1{
+    color: var(--tertiary-color);
+    text-align: center;
+    font-size: 10rem;
+    position: absolute;
+    top: 30%;
+    left: 65%;
+    margin-right: -35%;
+    transform: translate(-50%, -50%) ;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    /* text-shadow: 2px 2px 20px lightblue; */
+}
+
+button{
+    margin: 0px 15px;
+    background-color: var(--tertiary-color);
+    color: white;
+    border: none;
+}
+
+.title-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+}
+
+svg{
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin-right: -60%;
+    transform: translate(-50%, -50%) ;
+}

@@ -1,0 +1,47 @@
+html, body {
+    min-height: 100% !important;
+    height: 100%
+}
+
+:host(app-login){
+    height: 100%;
+}
+
+main{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registration-form{
+    width: 400px;
+}
+
+
+.form-container{
+    margin: 0;
+    width: 400px;
+    text-align: center;
+}
+
+#invalid-creds{
+    color: #bb6c5d;
+}
+
+.a-tag{
+    color: blue;
+}
+
+.a-tag:hover{
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+}
